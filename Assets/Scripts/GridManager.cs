@@ -92,7 +92,8 @@ public class GridManager : MonoBehaviour
                 SpriteRenderer renderer = newTile.GetComponent<SpriteRenderer>();
                 renderer.sprite = possibleSprites[Random.Range(0, possibleSprites.Count)];
 
-                Tile tile = newTile.AddComponent<Tile>();
+                //Tile tile = newTile.AddComponent<Tile>();
+                Tile tile = newTile.GetComponent<Tile>(); 
                 tile.Position = new Vector2Int(column, row);
 
                 newTile.transform.parent = transform;
