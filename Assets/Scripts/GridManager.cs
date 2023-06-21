@@ -45,7 +45,6 @@ public class GridManager : MonoBehaviour
     public GameObject GameOverMenu;
     public TextMeshProUGUI MovesText;
     public TextMeshProUGUI ScoreText;
-
     public static GridManager Instance {get; private set;}
 
     void Awake()
@@ -53,7 +52,7 @@ public class GridManager : MonoBehaviour
         Instance = this;
         Score = 0;
         NumMoves = StartingMoves;
-        GameOverMenu.SetActive(false); //этого нет в финальной версии
+        //GameOverMenu.SetActive(false); //этого нет в финальной версии
     }
 
     // Start is called before the first frame update
@@ -141,11 +140,11 @@ public class GridManager : MonoBehaviour
             temp = renderer1.sprite;
             renderer1.sprite = renderer2.sprite;
             renderer2.sprite = temp;
-            SoundManager.Instance.PlaySound(SoundType.TypeMove);
+            //SoundManager.Instance.PlaySound(SoundType.TypeMove);
         }
         else
         {
-            SoundManager.Instance.PlaySound(SoundType.TypePop);
+            //SoundManager.Instance.PlaySound(SoundType.TypePop);
             NumMoves--;
             do
             {
@@ -247,6 +246,6 @@ public class GridManager : MonoBehaviour
         Debug.Log("GAME OVER");
         PlayerPrefs.SetInt("score", Score);
         GameOverMenu.SetActive(true);
-        SoundManager.Instance.PlaySound(SoundType.TypeGameOver);
+        //SoundManager.Instance.PlaySound(SoundType.TypeGameOver);
     }
 }
